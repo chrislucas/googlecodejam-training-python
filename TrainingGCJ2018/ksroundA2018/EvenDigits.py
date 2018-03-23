@@ -13,13 +13,13 @@ def has_odd_number(n):
     return False
 
 
-_small = "../raw/out/a-small-practice.txt"
-_larger = "../raw/out/a-larger-practice.txt"
+_small = "../raw/ksroundA2018/out/a-small-practice.txt"
+_larger = "../raw/ksroundA2018/out/a-larger-practice.txt"
 
 
 # naive approach
 def solver():
-    _out = open(_larger, "w+")
+    file_writer = open(_larger, "w+")
     cases = int(_in.readline())
     for x in range(1, cases + 1):
         n = int(_in.readline())
@@ -36,7 +36,7 @@ def solver():
         diff_1 = abs(n - _copy_1)
         diff_2 = abs(n - _copy_2)
         _answer = diff_1 if diff_1 < diff_2 else diff_2
-        _out.write("Case #%d: %d\n" % (x, _answer))
+        file_writer.write("Case #%d: %d\n" % (x, _answer))
 
 
 def solver2():
