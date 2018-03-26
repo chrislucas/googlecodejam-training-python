@@ -27,9 +27,35 @@ def naive_test(n):
     return _str_i
 
 
-for x in range(1, 100):
-    _str = naive_test(x)
-    print("%d %s ... %d" % (x, _str[0:10], len(_str)))
+def test():
+    for x in range(1, 10):
+        _str = naive_test(x)
+        l = len(_str) - 7
+        r = len(_str)
+        print("%d %s ... %d" % (x, _str, len(_str)))
+
+
+'''
+A string Googol segue um padrao. sempre o (2^i)-esimo caracter eh '0'
+entao se k for uma potencia de 2 a funcao retorna '0' imediatamente
+@solver
+'''
+def solver(k):
+    '''
+    from math import log, floor
+    nearest_2_power = floor(log(k, 2))
+    if k == 2 ** nearest_2_power:
+        return '0'
+    '''
+
+    # teste se k eh uma potencia de 2 mais eficiente do que o acima
+    if (k & (k - 1)) == 0:
+        return '0'
+
+    return '1'
+
+
+print(solver(32))
 
 if __name__ == '__main__':
     pass
